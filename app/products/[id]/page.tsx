@@ -2,6 +2,8 @@ import Container from "@/components/Container";
 import { Rating } from "@smastrom/react-rating";
 import { Minus, Plus } from "react-feather";
 import Images from "./Images";
+import ImageSkeleton from "./ImageSkeleton";
+import TextSkeleton from "./TextSkeleton";
 
 export default function ProductPage() {
   return (
@@ -9,8 +11,10 @@ export default function ProductPage() {
       <Container className="grid grid-cols-5 gap-10 items-center">
         <div className="col-span-3">
           <Images />
+          {/* <ImageSkeleton /> */}
         </div>
         <div className="col-span-2">
+          {/* <TextSkeleton /> */}
           <h3 className="text-xl mb-2">iphone 13</h3>
           <div className="flex items-center gap-2 mb-4">
             <Rating value={4.5} className="max-w-[70px]" readOnly />{" "}

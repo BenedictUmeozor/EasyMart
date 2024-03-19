@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Form from "./Form";
+import SkeletonForm from "./Skeleton";
 
 export default function Account() {
   return (
@@ -13,6 +14,7 @@ export default function Account() {
         <div className="col-span-3 shadow p-6 rounded">
           <h2 className="text-xl text-crimson mb-8">Edit your Profile</h2>
           <Form />
+          {/* <SkeletonForm /> */}
         </div>
       </Container>
     </div>

@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import Products from "./Products";
 import Title from "./Title";
+import ProductsSkeleton from "@/components/ProductsSkeleton";
 
 export default function Todays() {
   return (
@@ -10,6 +11,7 @@ export default function Todays() {
         <div className="  mt-4">
           <h2 className="mb-6 tracking-wide text-2xl">Flash Sales</h2>
           <Products />
+          {/* <ProductsSkeleton /> */}
           <div className="mt-8 text-center">
             <button className=" bg-crimson text-white py-2 px-4 rounded text-[0.9rem]">
               View All Products

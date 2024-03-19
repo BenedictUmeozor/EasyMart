@@ -1,3 +1,4 @@
+import CartSkeleton from "@/components/CartSkeleton";
 import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,7 @@ export default function Cart() {
   return (
     <div className="py-12">
       <Container>
+        {/* <CartSkeleton /> */}
         <table className="w-full">
           <tr className="grid grid-cols-4 gap-2 text-left mb-4 shadow-sm rounded py-4 px-4 items-center">
             <th className="font-normal">Product</th>

@@ -3,6 +3,7 @@ import { categories } from "./data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "react-feather";
+import HeroSkeleton from "./skeletons/HeroSkeleton";
 
 export default function HeroSection() {
   return (
@@ -20,6 +21,7 @@ export default function HeroSection() {
           </ul>
         </div>
         <div className="col-span-3">
+          {/* <HeroSkeleton /> */}
           <div className="bg-black text-white flex p-12 rounded justify-between w-[90%] mx-auto">
             <div className="flex-1 flex flex-col gap-4 justify-between">
               <p>iPhone 9</p>
