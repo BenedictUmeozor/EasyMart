@@ -1,54 +1,47 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
+import { v4 as uuidV4 } from "uuid";
 
-export default function Images() {
+type Props = {
+  images: string[];
+  title: string;
+};
+
+export default function Images({ images, title }: Props) {
+  const [index, setIndex] = useState(0);
+
+  const handleChange = (i: number) => {
+    setIndex(i);
+  };
+
   return (
-    <div className="flex items-center gap-4">
-      <div className="flex-1 flex flex-col items-center gap-4 justify-between">
-        <div className="w-full flex items-center justify-center">
-          <Image
-            src={"https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"}
-            alt="image"
-            height={500}
-            width={500}
-            className="w-full rounded cursor-pointer hover:scale-105 hover:border hover:border-crimson"
-          />
-        </div>
-        <div className="w-full flex items-center justify-center">
-          <Image
-            src={"https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"}
-            alt="image"
-            height={500}
-            width={500}
-            className="w-full rounded cursor-pointer hover:scale-105 hover:border hover:border-crimson"
-          />
-        </div>
-        <div className="w-full flex items-center justify-center">
-          <Image
-            src={"https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"}
-            alt="image"
-            height={500}
-            width={500}
-            className="w-full rounded cursor-pointer hover:scale-105 hover:border hover:border-crimson"
-          />
-        </div>
-        <div className="w-full flex items-center justify-center">
-          <Image
-            src={"https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"}
-            alt="image"
-            height={500}
-            width={500}
-            className="w-full rounded cursor-pointer hover:scale-105 hover:border hover:border-crimson"
-          />
-        </div>
-      </div>
-
+    <div className=" items-center flex flex-col gap-4">
       <Image
-        src={"https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"}
-        alt="image"
+        src={images[index]}
+        alt={title}
         height={500}
         width={500}
-        className="rounded flex-3"
+        className="rounded flex-3 max-w-[100%] object-contain max-h-96"
       />
+
+      <div className="flex-1 flex gap-4 justify-between">
+        {images.map((image, index) => (
+          <div
+            key={uuidV4()}
+            className="w-full flex rounded shadow justify-center"
+            onClick={() => handleChange(index)}
+          >
+            <Image
+              src={image}
+              alt={title}
+              height={500}
+              width={500}
+              className="w-full rounded cursor-pointer hover:scale-105 hover:border hover:border-crimson object-contain"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

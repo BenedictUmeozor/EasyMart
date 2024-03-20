@@ -1,13 +1,18 @@
+import { Product as ProductType } from "@/types/types";
 import Product from "./Product";
 
-export default function Products() {
+type Props = {
+  products: ProductType[];
+};
+
+export default function Products({ products }: Props) {
   return (
     <div className="grid grid-cols-5 gap-4" style={{ rowGap: "2rem" }}>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      {products &&
+        products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
+      {!products && "products"}
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Container from "./Container";
 
-import { Heart, Search, ShoppingCart, User } from "react-feather";
+import { Heart, ShoppingCart, User } from "react-feather";
 import Nav from "./Nav";
+import SearchComponent from "./Search";
 
 export default function Header() {
   return (
@@ -22,14 +23,7 @@ export default function Header() {
 
         <Nav />
         <div className="flex-[1.5] flex items-center justify-between gap-4">
-          <div className="relative h-14 flex-[3]">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="h-full w-full text-xs bg-[#f5f5f5] px-2 rounded"
-            />
-            <Search className="w-4 absolute top-1/2 right-[5%] transform -translate-y-1/2" />
-          </div>
+          <SearchComponent />
           <div className="flex-1 flex items-center gap-3">
             <Link href="/wishlist">
               <Heart className="w-5 cursor-pointer" />
