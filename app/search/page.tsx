@@ -7,6 +7,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import Products from "../components/Products";
 import Link from "next/link";
 import { Pagination } from "@mui/material";
+import ProductsSkeleton from "@/components/ProductsSkeleton";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -48,10 +49,12 @@ export default function SearchPage() {
 
   return (
     <section className="py-12">
+      {products === null && <ProductsSkeleton />}
       {products && products.length > 0 && (
         <Container>
           <h2 className="text-xl font-semibold mb-8">
-            Search results for <span className="italic text-crimson">{term}</span>{" "}
+            Search results for{" "}
+            <span className="italic text-crimson">{term}</span>{" "}
             <span className="text-gray-400 text-base">({total})</span>
           </h2>
           <div className="mt-12">

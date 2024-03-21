@@ -14,6 +14,7 @@ export default function SearchComponent() {
 
   const handleSearch = () => {
     router.push(`/search?s=${term}`);
+    setTerm("")
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -30,6 +31,7 @@ export default function SearchComponent() {
         className="h-full w-full text-xs bg-[#f5f5f5] px-2 rounded-t rounded-bl flex-[6]"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        value={term}
       />
       <div
         className="flex-1 h-14 flex rounded-tr rounded-br items-center justify-center bg-[#f5f5f5] hover:bg-[#e2e2e2] cursor-pointer"

@@ -4,8 +4,11 @@ import Container from "./Container";
 import { Heart, ShoppingCart, User } from "react-feather";
 import Nav from "./Nav";
 import SearchComponent from "./Search";
+import { getAuth } from "@/app/api/auth/[...nextauth]/route";
 
-export default function Header() {
+export default async function Header() {
+  const session = await getAuth();
+
   return (
     <header className="border-b border-[#ddd]">
       <div className="bg-black text-white text-center py-4">
@@ -21,19 +24,23 @@ export default function Header() {
           EasyMart
         </Link>
 
-        <Nav />
+        <Nav sessionIsActive={session !== null} />
         <div className="flex-[1.5] flex items-center justify-between gap-4">
           <SearchComponent />
           <div className="flex-1 flex items-center gap-3">
-            <Link href="/wishlist">
-              <Heart className="w-5 cursor-pointer" />
-            </Link>
+            {session && (
+              <Link href="/wishlist">
+                <Heart className="w-5 cursor-pointer" />
+              </Link>
+            )}
             <Link href="/cart">
               <ShoppingCart className="w-5 cursor-pointer" />
             </Link>
-            <Link href="/account">
-              <User className="w-5 cursor-pointer" />
-            </Link>
+            {session && (
+              <Link href="/account">
+                <User className="w-5 cursor-pointer" />
+              </Link>
+            )}
           </div>
         </div>
       </Container>

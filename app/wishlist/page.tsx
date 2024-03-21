@@ -2,8 +2,16 @@ import Container from "@/components/Container";
 import Wishlist from "./Wishlist";
 import Title from "../components/Title";
 import Products from "../components/Products";
+import { redirect } from "next/navigation";
+import { getAuth } from "../api/auth/[...nextauth]/route";
 
-export default function WishlistPage() {
+export default async function WishlistPage() {
+  const session = await getAuth();
+
+  if (!session) {
+    redirect("/signin");
+  }
+
   return (
     <div className="py-12">
       <Container>

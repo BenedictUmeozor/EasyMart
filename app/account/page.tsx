@@ -1,8 +1,16 @@
 import Container from "@/components/Container";
 import Form from "./Form";
 import SkeletonForm from "./Skeleton";
+import { getAuth } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
-export default function Account() {
+export default async function Account() {
+  const session = await getAuth();
+
+  if (!session) {
+    redirect("/signin");
+  }
+
   return (
     <div className="py-12">
       <Container className="grid grid-cols-4 gap-8">

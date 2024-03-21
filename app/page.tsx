@@ -3,7 +3,7 @@ import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
 import Todays from "./components/Todays";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <HeroSection />

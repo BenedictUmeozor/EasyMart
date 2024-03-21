@@ -75,3 +75,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
+button:disabled {
+  opacity: 0.8;
+}
