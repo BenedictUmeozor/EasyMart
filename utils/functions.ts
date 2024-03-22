@@ -1,3 +1,5 @@
+import { signIn } from "next-auth/react";
+
 export const shuffleArray = <T>(array: T[]): T[] => {
   const shuffledArray = [...array];
 
@@ -10,4 +12,29 @@ export const shuffleArray = <T>(array: T[]): T[] => {
   }
 
   return shuffledArray;
+};
+
+export const loginUser = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  try {
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (res?.error) {
+      throw new Error("Invalid credentials");
+    }
+
+    return { message: "Login successful" };
+  } catch (error) {
+    return {
+      error: (error as Error).message,
+    };
+  }
 };

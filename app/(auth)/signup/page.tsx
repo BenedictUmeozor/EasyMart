@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import image from "@/assets/cartimage.png";
 import Image from "next/image";
 import Form from "./Form";
-import { getAuth } from "../api/auth/[...nextauth]/route";
+import { getAuth } from "../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 export default async function SignUp() {

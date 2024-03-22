@@ -1,9 +1,9 @@
 import Container from "@/components/Container";
 import Wishlist from "./Wishlist";
-import Title from "../components/Title";
-import Products from "../components/Products";
+import Title from "../../components/Title";
+import Products from "../../components/Products";
 import { redirect } from "next/navigation";
-import { getAuth } from "../api/auth/[...nextauth]/route";
+import { getAuth } from "../../api/auth/[...nextauth]/route";
 
 export default async function WishlistPage() {
   const session = await getAuth();

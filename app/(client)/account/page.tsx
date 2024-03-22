@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import Form from "./Form";
 import SkeletonForm from "./Skeleton";
-import { getAuth } from "../api/auth/[...nextauth]/route";
+import { getAuth } from "../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 export default async function Account() {

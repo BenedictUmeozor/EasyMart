@@ -26,8 +26,6 @@ const links = [
 export default function Nav({ sessionIsActive }: { sessionIsActive: boolean }) {
   const pathname = usePathname();
 
-  console.log(sessionIsActive);
-
   return (
     <nav className="flex-[2]">
       <ul className="block">

@@ -6,6 +6,8 @@ import "@smastrom/react-rating/style.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import AuthProvider from "@/context/SessionProvider";
+import NoRenderComponent from "@/context/NoRenderComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +24,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + " bg-white"}>
         <Header />
-        <main>
-          {children}
-          <Toaster />
-        </main>
+        <AuthProvider>
+          <NoRenderComponent>
+            <main>
+              {children}
+              <Toaster />
+            </main>
+          </NoRenderComponent>
+        </AuthProvider>
         <Footer />
       </body>
     </html>
