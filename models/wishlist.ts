@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const wishlistItemSchema = new mongoose.Schema(
   {
-    product_id: { type: Number, required: true },
+    id: { type: Number, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },

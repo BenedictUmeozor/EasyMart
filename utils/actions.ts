@@ -1,5 +1,7 @@
 "use server";
 
+import { Product } from "@/types/types";
+
 export async function createUser(prevState: any, formData: FormData) {
   const rawFomData = {
     name: formData.get("name"),
@@ -66,4 +68,16 @@ export async function createUser(prevState: any, formData: FormData) {
       details: false,
     };
   }
+}
+
+export async function getProduct(product_id: string) {
+  const product = await fetch(`https://dummyjson.com/products/${product_id}`, {
+    cache: "no-store",
+  });
+  return product.json();
+}
+
+export async function getUser(id: string) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/${id}`);
+  return res.json();
 }

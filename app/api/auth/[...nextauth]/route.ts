@@ -64,8 +64,14 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session }) {
       // store the user id from MongoDB to session
-      const sessionUser = await User.findOne({ email: session?.user?.email });
+      const sessionUser = await User.findOne({
+        email: session?.user?.email,
+      }).populate({
+        path: "wishlist",
+        select: "id",
+      });
       (session?.user as any).id = sessionUser._id.toString();
+      (session?.user as any).wishlist = sessionUser.wishlist;
 
       return session;
     },

@@ -42,3 +42,22 @@ export type Profile = {
   // These properties may or may not be present, depending on the provider
   [key: string]: unknown;
 };
+
+export type WishlistItem = {
+  _id: string;
+  id: number;
+};
+
+export type User = {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
+  phoneNumber: string;
+  address: string;
+  orders: any[]; // Assuming orders can be of any type
+  wishlist: WishlistItem[];
+  createdAt: string; // Assuming createdAt and updatedAt are strings representing dates
+  updatedAt: string;
+  __v: number;
+};

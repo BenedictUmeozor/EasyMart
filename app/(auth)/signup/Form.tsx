@@ -7,7 +7,7 @@ import { getProviders, ClientSafeProvider, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/utils/actions";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 import { loginUser } from "@/utils/functions";
 import SubmitButton from "@/components/SubmitButton";
 
@@ -23,7 +23,6 @@ export default function Form() {
     ClientSafeProvider
   > | null>(null);
 
-  const { pending } = useFormStatus();
   const [state, formAction] = useFormState(createUser, initialState);
 
   const router = useRouter();
@@ -45,7 +44,7 @@ export default function Form() {
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
+  }, [state, state?.success, state?.details]);
 
   return (
     <div>

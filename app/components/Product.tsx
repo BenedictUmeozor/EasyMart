@@ -2,9 +2,13 @@ import { Product as ProductType } from "@/types/types";
 import { Rating } from "@smastrom/react-rating";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, ShoppingCart } from "react-feather";
+import { ShoppingCart } from "react-feather";
+import AddToWishlistButton from "./AddToWishlistButton";
+import { getAuth } from "../api/auth/[...nextauth]/route";
 
-export default function Product({ product }: { product: ProductType }) {
+export default async function Product({ product }: { product: ProductType }) {
+  const session = await getAuth();
+
   return (
     <div className="h-[300px] flex flex-col rounded-md  shadow-lg">
       <div className="product-image relative h-[60%] w-full bg-secondary flex items-center justify-center overflow-hidden">
@@ -23,13 +27,14 @@ export default function Product({ product }: { product: ProductType }) {
           <div className="flex items-center justify-center rounded text-white bg-crimson px-2 py-1 text-xs">
             {Math.ceil(product.discountPercentage) + "%"}
           </div>
-          <div className="bg-white h-6 w-6 cursor-pointer rounded-[50%] flex items-center justify-center">
-            <Heart className="w-4 text transition-all duration-300 ease-linear hover:scale-105" />
-          </div>
+          {session?.user && <AddToWishlistButton product={product} />}
         </div>
       </div>
       <div className="w-full h-[40%] p-1 py-2">
-        <Link href={`/products/${product.id}`} className="text-[0.9rem] block hover:underline">
+        <Link
+          href={`/products/${product.id}`}
+          className="text-[0.9rem] block hover:underline"
+        >
           {product.title}
         </Link>
         <div className="text-[0.9rem] font-semibold flex items-center gap-2">
