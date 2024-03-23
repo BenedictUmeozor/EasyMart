@@ -5,7 +5,7 @@ import { ReactNode, createContext, memo, useContext, useState } from "react";
 
 type Context = {
   cart: CartItem[];
-  addToCart: (product: CartItem) => void;
+  addToCart: (product: CartItem, quantity?: number) => void;
   editCart: (product: CartItem) => void;
   deleteFromCart: (id: string) => void;
   updateCart: (cart: CartItem[]) => void;
@@ -28,7 +28,7 @@ export const CartProvider = memo(({ children }: { children: ReactNode }) => {
     JSON.parse(localStorage.getItem("cart")!) || []
   );
 
-  const addToCart = (product: CartItem) => {
+  const addToCart = (product: CartItem, quantity?: number) => {
     const existInCart = cart.find((c) => c.product_id === product.product_id);
     if (!existInCart) {
       const newCart = [...cart, { ...product }];
@@ -39,7 +39,7 @@ export const CartProvider = memo(({ children }: { children: ReactNode }) => {
         if (c.product_id === product.product_id) {
           return {
             ...c,
-            quantity: c.quantity + 1,
+            quantity: c.quantity + (quantity || 1),
             subTotal: c.subTotal + c.price,
           };
         }

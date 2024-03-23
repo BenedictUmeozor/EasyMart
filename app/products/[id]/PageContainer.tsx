@@ -3,6 +3,7 @@ import Images from "./Images";
 import { Rating } from "@smastrom/react-rating";
 import { Minus, Plus } from "react-feather";
 import { Product } from "@/types/types";
+import ClientComponent from "./ClientComponent";
 
 const getProduct = async (id: string) => {
   const res = await fetch(`https://dummyjson.com/products/${id}`, {
@@ -41,28 +42,7 @@ export default async function PageContainer({ id }: { id: string }) {
         </p>
         <p className="mb-8">{product.description}</p>
         <hr />
-        <div className="mt-8">
-          <div className="flex items-center gap-4">
-            <p>Quantity:</p>
-            <div className="inline-flex items-center border border-[#ccc] rounded">
-              <button className="w-12 flex items-center justify-center p-2 border-r border-r-[#ccc] hover:scale-100 hover:bg-crimson hover:text-white duration-75">
-                <Minus className="w-4" />
-              </button>
-              <p className="w-24 text-center p-2">1</p>
-              <button className="w-12 flex items-center justify-center p-2 border-l border-l-[#ccc] hover:scale-100 hover:bg-crimson hover:text-white duration-75">
-                <Plus className="w-4" />
-              </button>
-            </div>
-          </div>
-          <div className="mt-8 flex items-center gap-4">
-            <button className="flex-1 py-3 rounded text-[0.9rem] bg-transparent border border-[#ccc]">
-              Add to cart
-            </button>
-            <button className="flex-1 py-3 rounded text-[0.9rem] bg-crimson text-white">
-              Buy now
-            </button>
-          </div>
-        </div>
+        <ClientComponent product={product} />
       </div>
     </Container>
   );
