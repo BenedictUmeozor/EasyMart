@@ -1,5 +1,6 @@
 "use client";
 
+import CheckoutButton from "@/components/CheckoutButton";
 import { useCartContext } from "@/context/CartProvider";
 import { CartItem } from "@/types/types";
 import { memo, useMemo } from "react";
@@ -32,9 +33,10 @@ const CartSummary = memo(() => {
         <span>${total}</span>
       </div>
       <div className="text-center">
-        <button className="w-[80%] max-w-60 bg-crimson text-white rounded py-2 text-center mx-auto">
-          Pay with Stripe
-        </button>
+        <CheckoutButton
+          cart={cart}
+          className="w-[80%] max-w-60 bg-crimson text-white rounded py-2 text-center mx-auto"
+        />
       </div>
     </div>
   );

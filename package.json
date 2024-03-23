@@ -14,6 +14,7 @@
     "@heroicons/react": "^2.1.1",
     "@mui/material": "^5.15.14",
     "@smastrom/react-rating": "^1.5.0",
+    "@stripe/stripe-js": "^3.0.10",
     "aws4": "^1.12.0",
     "bcryptjs": "^2.4.3",
     "canvas-confetti": "^1.9.2",

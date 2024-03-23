@@ -1,7 +1,14 @@
 "use client";
 
 import { CartItem } from "@/types/types";
-import { ReactNode, createContext, memo, useContext, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  memo,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type Context = {
   cart: CartItem[];
@@ -24,9 +31,12 @@ export const useCartContext = () => {
 };
 
 export const CartProvider = memo(({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>(
-    JSON.parse(localStorage.getItem("cart")!) || []
-  );
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  useEffect(() => {
+    const cartFromStorage = JSON.parse(localStorage.getItem("cart")!) || [];
+    setCart(cartFromStorage);
+  }, []);
 
   const addToCart = (product: CartItem, quantity?: number) => {
     const existInCart = cart.find((c) => c.product_id === product.product_id);

@@ -1,5 +1,6 @@
 "use client";
 
+import CheckoutButton from "@/components/CheckoutButton";
 import { useCartContext } from "@/context/CartProvider";
 import { CartItem, Product } from "@/types/types";
 import { useState } from "react";
@@ -65,9 +66,20 @@ export default function ClientComponent({ product }: Props) {
         >
           Add to cart
         </button>
-        <button className="flex-1 py-3 rounded text-[0.9rem] bg-crimson text-white">
-          Buy now
-        </button>
+        <CheckoutButton
+          className="flex-1 py-3 rounded text-[0.9rem] bg-crimson text-white"
+          cart={[
+            {
+              id: uuidV4(),
+              price: Number(product.price),
+              product_id: String(product.id),
+              product_image: product.thumbnail,
+              product_title: product.title,
+              quantity: quantity,
+              subTotal: quantity * Number(product.price),
+            },
+          ]}
+        />
       </div>
     </div>
   );
