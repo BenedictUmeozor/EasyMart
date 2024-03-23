@@ -29,7 +29,7 @@ export default async function SingleCategory({ title }: Props) {
             </h2>
             <Link
               href={"/categories/" + title}
-              className=" bg-crimson text-white py-2 px-4 rounded text-[0.9rem]"
+              className=" bg-crimson text-white py-2 px-4 rounded text-[0.9rem] hover:scale-100 button-hover"
             >
               View All
             </Link>

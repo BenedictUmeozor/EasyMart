@@ -29,15 +29,15 @@ export default async function Header() {
           <SearchComponent />
           <div className="flex-1 flex items-center gap-3">
             {session && (
-              <Link href="/wishlist">
+              <Link href="/wishlist" title="wishlist">
                 <Heart className="w-5 cursor-pointer" />
               </Link>
             )}
-            <Link href="/cart">
+            <Link href="/cart" title="cart">
               <ShoppingCart className="w-5 cursor-pointer" />
             </Link>
             {session && (
-              <Link href="/account">
+              <Link href="/account" title="account">
                 <User className="w-5 cursor-pointer" />
               </Link>
             )}

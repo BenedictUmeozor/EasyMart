@@ -61,3 +61,24 @@ export type User = {
   updatedAt: string;
   __v: number;
 };
+
+export type UserWishlist = {
+  _id: string;
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+  user_id: {
+    _id: string;
+  };
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};

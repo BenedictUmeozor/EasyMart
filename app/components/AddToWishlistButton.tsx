@@ -14,6 +14,7 @@ export default function AddToWishlistButton({ product }: Props) {
   const { data: session } = useSession();
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   const [isInWishlist, setIsInWishlist] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const checkWishList = (array: WishlistItem[]) => {
     const isPresent = array.some((p) => p.id == product.id);
@@ -23,6 +24,7 @@ export default function AddToWishlistButton({ product }: Props) {
   const addToWishlist = async () => {
     if (!wishlist.some((p) => p.id === product.id)) {
       try {
+        setLoading(true);
         if (!session?.user) {
           return toast.error("Wait for authentication");
         }
@@ -43,6 +45,8 @@ export default function AddToWishlistButton({ product }: Props) {
       } catch (error) {
         console.log(error);
         toast.error("Something went wrong");
+      } finally {
+        setLoading(false);
       }
     } else {
       try {
@@ -70,6 +74,8 @@ export default function AddToWishlistButton({ product }: Props) {
       } catch (error) {
         console.log(error);
         toast.error("Something went wrong");
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -96,7 +102,10 @@ export default function AddToWishlistButton({ product }: Props) {
 
   return (
     <div
-      className="bg-white h-6 w-6 cursor-pointer rounded-[50%] flex items-center justify-center"
+      className={
+        "bg-white h-6 w-6 cursor-pointer rounded-[50%] flex items-center justify-center " +
+        (loading ? "pointer-events-none" : "")
+      }
       onClick={addToWishlist}
     >
       <Heart

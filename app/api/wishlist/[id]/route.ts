@@ -3,6 +3,27 @@ import User from "@/models/user";
 import Wishlist from "@/models/wishlist";
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    await connectToDatabase();
+    const wishlist = await Wishlist.find({ user_id: params.id }).populate({
+      path: "user_id",
+      select: "_id",
+    });
+
+    return NextResponse.json(wishlist, { status: 200 });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { error: "Failed to fetch response" },
+      { status: 404 }
+    );
+  }
+}
+
 export async function POST(
   req: NextRequest,
   { params }: { params: { id: string } }
