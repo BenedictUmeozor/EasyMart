@@ -85,6 +85,7 @@ export type UserWishlist = {
 
 export type CartItem = {
   id: string;
+  product_title: string;
   product_id: string;
   product_image: string;
   quantity: number;

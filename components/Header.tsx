@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Container from "./Container";
 
-import { Heart, ShoppingCart, User } from "react-feather";
+import { Heart, User } from "react-feather";
 import Nav from "./Nav";
 import SearchComponent from "./Search";
 import { getAuth } from "@/app/api/auth/[...nextauth]/route";
+import CartLink from "./CartLink";
 
 export default async function Header() {
   const session = await getAuth();
@@ -33,9 +34,7 @@ export default async function Header() {
                 <Heart className="w-5 cursor-pointer" />
               </Link>
             )}
-            <Link href="/cart" title="cart">
-              <ShoppingCart className="w-5 cursor-pointer" />
-            </Link>
+            <CartLink />
             {session && (
               <Link href="/account" title="account">
                 <User className="w-5 cursor-pointer" />

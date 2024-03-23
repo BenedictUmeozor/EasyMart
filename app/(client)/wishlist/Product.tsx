@@ -1,5 +1,6 @@
 "use client";
 
+import AddToCartButton from "@/app/components/AddToCartButton";
 import { UserWishlist } from "@/types/types";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
@@ -35,10 +36,7 @@ const Product = memo(({ wishlist, onDelete }: Props) => {
           width={200}
           className="w-full h-full duration-700 hover:scale-105"
         />
-        <button className="absolute bottom-0 left-0 w-full bg-black text-white p-2 text-[0.9rem] flex items-center justify-center gap-2">
-          <ShoppingCart className="w-4 " />
-          Add to cart
-        </button>
+        <AddToCartButton product={wishlist} />
         <div className="absolute top-0 left-0 w-full bg-transparent z-[2] flex items-center justify-between p-2">
           <div className="flex items-center justify-center rounded text-white bg-crimson px-2 py-1 text-xs">
             {Math.ceil(wishlist.discountPercentage) + "%"}

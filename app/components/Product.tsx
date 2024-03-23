@@ -4,9 +4,9 @@ import { Product as ProductType } from "@/types/types";
 import { Rating } from "@smastrom/react-rating";
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingCart } from "react-feather";
 import AddToWishlistButton from "./AddToWishlistButton";
 import { useSession } from "next-auth/react";
+import AddToCartButton from "./AddToCartButton";
 
 export default function Product({ product }: { product: ProductType }) {
   const { data: session } = useSession();
@@ -21,10 +21,7 @@ export default function Product({ product }: { product: ProductType }) {
           width={200}
           className="w-full h-full duration-700 hover:scale-105 object-contain"
         />
-        <button className="absolute bottom-0 left-0 w-full bg-black text-white p-2 text-[0.9rem] flex items-center justify-center gap-2 hover:scale-100">
-          <ShoppingCart className="w-4 " />
-          Add to cart
-        </button>
+        <AddToCartButton product={product} />
         <div className="absolute top-0 left-0 w-full bg-transparent z-[2] flex items-center justify-between p-2">
           <div className="flex items-center justify-center rounded text-white bg-crimson px-2 py-1 text-xs">
             {Math.ceil(product.discountPercentage) + "%"}
