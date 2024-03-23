@@ -1,6 +1,7 @@
 import Wishlist from "@/models/wishlist";
 import connectToDatabase from "@/libs/database";
 import { NextRequest, NextResponse } from "next/server";
+import User from "@/models/user";
 
 export async function GET(req: NextRequest) {
   try {

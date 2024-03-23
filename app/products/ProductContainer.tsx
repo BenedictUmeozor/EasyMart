@@ -1,12 +1,12 @@
 "use client";
 
 import { ChangeEvent, useEffect, useState } from "react";
-import Products from "../components/Products";
 import { Product, ProductList } from "@/types/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Pagination } from "@mui/material";
 import ProductsSkeleton from "@/components/ProductsSkeleton";
 import { shuffleArray } from "@/utils/functions";
+import Products from "./Products";
 
 export default function ProductContainer() {
   const [products, setProducts] = useState<Product[] | null>(null);

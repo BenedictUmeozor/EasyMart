@@ -1,3 +1,5 @@
+"use client"
+
 import CartSkeleton from "@/components/CartSkeleton";
 import Container from "@/components/Container";
 import Image from "next/image";

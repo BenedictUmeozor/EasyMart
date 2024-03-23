@@ -1,13 +1,15 @@
+"use client";
+
 import { Product as ProductType } from "@/types/types";
 import { Rating } from "@smastrom/react-rating";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingCart } from "react-feather";
 import AddToWishlistButton from "./AddToWishlistButton";
-import { getAuth } from "../api/auth/[...nextauth]/route";
+import { useSession } from "next-auth/react";
 
-export default async function Product({ product }: { product: ProductType }) {
-  const session = await getAuth();
+export default function Product({ product }: { product: ProductType }) {
+  const { data: session } = useSession();
 
   return (
     <div className="h-[300px] flex flex-col rounded-md  shadow-lg">

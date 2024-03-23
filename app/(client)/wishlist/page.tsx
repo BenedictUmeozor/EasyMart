@@ -30,7 +30,7 @@ export default async function WishlistPage() {
                 See All
               </button>
             </div>
-            <Products />
+            {/* <Products /> */}
           </div>
         </section>
       </Container>

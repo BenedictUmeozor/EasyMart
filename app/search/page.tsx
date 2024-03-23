@@ -4,10 +4,10 @@ import Container from "@/components/Container";
 import { Product, ProductList } from "@/types/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
-import Products from "../components/Products";
 import Link from "next/link";
 import { Pagination } from "@mui/material";
 import ProductsSkeleton from "@/components/ProductsSkeleton";
+import Products from "./Products";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -49,7 +49,11 @@ export default function SearchPage() {
 
   return (
     <section className="py-12">
-      {products === null && <ProductsSkeleton />}
+      {products === null && (
+        <Container>
+          <ProductsSkeleton />
+        </Container>
+      )}
       {products && products.length > 0 && (
         <Container>
           <h2 className="text-xl font-semibold mb-8">

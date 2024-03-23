@@ -4,21 +4,12 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import connectToDatabase from "@/libs/database";
 import bcrypt from "bcryptjs";
 import User from "@/models/user";
-import { Account, Profile } from "@/types/types";
 
 const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
-      clientId:
-        process.env.GOOGLE_CLIENT_ID ||
-        (() => {
-          throw new Error("GOOGLE_CLIENT_ID is not set");
-        })(),
-      clientSecret:
-        process.env.GOOGLE_CLIENT_SECRET ||
-        (() => {
-          throw new Error("GOOGLE_CLIENT_ID is not set");
-        })(),
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
     CredentialsProvider({
       name: "credentials",
@@ -63,7 +54,11 @@ const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async session({ session }) {
+      await connectToDatabase();
       // store the user id from MongoDB to session
+      if (!session?.user?.email) {
+        return session;
+      }
       const sessionUser = await User.findOne({
         email: session?.user?.email,
       }).populate({
