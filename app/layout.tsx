@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/context/SessionProvider";
 import NoRenderComponent from "@/context/NoRenderComponent";
+import { CartProvider } from "@/context/CartProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,16 +24,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " bg-white"}>
-        <Header />
         <AuthProvider>
-          <NoRenderComponent>
-            <main>
-              {children}
-              <Toaster />
-            </main>
-          </NoRenderComponent>
+          <CartProvider>
+            <NoRenderComponent>
+              <section className="body">
+                <Header />
+                <main>
+                  {children}
+                  <Toaster />
+                </main>
+                <Footer />
+              </section>
+            </NoRenderComponent>
+          </CartProvider>
         </AuthProvider>
-        <Footer />
       </body>
     </html>
   );

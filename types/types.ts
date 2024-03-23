@@ -82,3 +82,12 @@ export type UserWishlist = {
   updatedAt: string;
   __v: number;
 };
+
+export type CartItem = {
+  id: string;
+  product_id: string;
+  product_image: string;
+  quantity: number;
+  price: number;
+  subTotal: number;
+};
