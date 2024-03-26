@@ -16,6 +16,7 @@ type Context = {
   editCart: (product: CartItem) => void;
   deleteFromCart: (id: string) => void;
   updateCart: (cart: CartItem[]) => void;
+  deleteAllFromCart: () => void;
 };
 
 const CartContext = createContext<Context>({
@@ -24,6 +25,7 @@ const CartContext = createContext<Context>({
   editCart: () => {},
   deleteFromCart: () => {},
   updateCart: () => {},
+  deleteAllFromCart: () => {},
 });
 
 export const useCartContext = () => {
@@ -82,9 +84,21 @@ export const CartProvider = memo(({ children }: { children: ReactNode }) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
+  const deleteAllFromCart = () => {
+    setCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, editCart, deleteFromCart, updateCart }}
+      value={{
+        cart,
+        addToCart,
+        editCart,
+        deleteFromCart,
+        updateCart,
+        deleteAllFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>

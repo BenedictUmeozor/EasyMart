@@ -89,3 +89,16 @@ function isEqual(obj1: any, obj2: any): boolean {
   // If they are not objects, compare their values
   return obj1 === obj2;
 }
+
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  // Example format: "March 23, 2024 16:15:14"
+  return date.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  });
+}

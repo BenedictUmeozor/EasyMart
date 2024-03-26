@@ -1,4 +1,16 @@
-export default function Form() {
+import { getAuth } from "@/app/api/auth/[...nextauth]/route";
+import { User } from "@/types/types";
+
+const getUser = async (id: string) => {
+  const res = await fetch(`${process.env.NEXT_BASE_URL}/api/user/${id}`);
+
+  return res.json();
+};
+
+export default async function Form() {
+  const session = await getAuth();
+  const { user }: { user: User } = await getUser((session?.user as any).id);
+
   return (
     <div>
       <form className="w-full">
@@ -10,8 +22,10 @@ export default function Form() {
             <input
               type="text"
               id="name"
+              name="name"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
-              placeholder="Benedict Umeozor"
+              placeholder="Name"
+              defaultValue={user.name}
             />
           </div>
           <div className="flex-1">
@@ -21,8 +35,10 @@ export default function Form() {
             <input
               type="email"
               id="email"
+              name="email"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
               placeholder="example@gmail.com"
+              defaultValue={user.email}
             />
           </div>
         </div>
@@ -34,8 +50,10 @@ export default function Form() {
             <input
               type="tel"
               id="phone"
+              name="phoneNumber"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
               placeholder="08123346754"
+              defaultValue={user.phoneNumber ? user.phoneNumber : ""}
             />
           </div>
           <div className="flex-1">
@@ -45,8 +63,10 @@ export default function Form() {
             <input
               type="text"
               id="address"
+              name="address"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
-              placeholder="4, Benedict Street"
+              placeholder="4, Example Street"
+              defaultValue={user.address ? user.address : ""}
             />
           </div>
         </div>
@@ -55,6 +75,7 @@ export default function Form() {
           <div className="mb-4">
             <input
               type="password"
+              name="current_password"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
               placeholder="Current Password"
             />
@@ -62,6 +83,7 @@ export default function Form() {
           <div className="mb-4">
             <input
               type="password"
+              name="password"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
               placeholder="New Password"
             />
@@ -69,6 +91,7 @@ export default function Form() {
           <div className="mb-4">
             <input
               type="password"
+              name="confirm_password"
               className="bg-[#f5f5f5] rounded p-2 h-12 w-full"
               placeholder="Confirm New Password"
             />

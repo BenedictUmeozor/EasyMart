@@ -1,3 +1,4 @@
+import Order from "@/models/order";
 import User from "@/models/user";
 import Wishlist from "@/models/wishlist";
 import mongoose from "mongoose";
@@ -9,6 +10,7 @@ async function connectToDatabase() {
       console.log("Connected to MongoDB!");
       await Wishlist.find({});
       await User.find({});
+      await Order.find({});
       console.log("Mongoose models are set!");
     }
   } catch (error) {

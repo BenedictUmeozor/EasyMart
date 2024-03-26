@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import image from "@/assets/success-green-check-mark-icon.svg";
+import image from "@/assets/red-x-icon.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { getAuth } from "@/app/api/auth/[...nextauth]/route";
@@ -25,8 +25,8 @@ export default async function Page() {
               className="w-16"
             />
           </div>
-          <h2 className="text-2xl mt-4 font-bold">Thank You For Your Order</h2>
-          <p className="mt-2 mb-4">Check your email for the receipt</p>
+          <h2 className="text-2xl mt-4 font-bold">You cancelled your order</h2>
+          <p className="mt-2 mb-4">Check your email for the confirmation</p>
 
           <p className="mb-6">
             If you have any questions, please email{" "}

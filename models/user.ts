@@ -7,7 +7,12 @@ const userSchema = new mongoose.Schema(
     password: { type: String, default: "" },
     phoneNumber: { type: String, default: "" },
     address: { type: String, default: "" },
-    orders: [{ type: String }],
+    orders: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Order",
+      },
+    ],
     wishlist: [
       {
         type: mongoose.Schema.Types.ObjectId,

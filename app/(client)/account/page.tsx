@@ -1,18 +1,14 @@
+import { Suspense } from "react";
 import Form from "./Form";
-import { getAuth } from "../../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import SkeletonForm from "./Skeleton";
 
-export default async function Account() {
-  const session = await getAuth();
-
-  if (!session) {
-    redirect("/signin");
-  }
-
+export default function Account() {
   return (
     <div>
       <h2 className="text-xl text-crimson mb-8">Edit your Profile</h2>
-      <Form />
+      <Suspense fallback={<SkeletonForm />}>
+        <Form />
+      </Suspense>
     </div>
   );
 }
