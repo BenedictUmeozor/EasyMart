@@ -1,7 +1,6 @@
 import Container from "@/components/Container";
 import Images from "./Images";
 import { Rating } from "@smastrom/react-rating";
-import { Minus, Plus } from "react-feather";
 import { Product } from "@/types/types";
 import ClientComponent from "./ClientComponent";
 

@@ -2,8 +2,8 @@ import Container from "@/components/Container";
 import image from "@/assets/cartimage.png";
 import Image from "next/image";
 import Form from "./Form";
-import { getAuth } from "../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { getAuth } from "@/config/auth";
 
 export default async function SignUp() {
   const session = await getAuth();

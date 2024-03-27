@@ -2,8 +2,8 @@ import Container from "@/components/Container";
 import image from "@/assets/red-x-icon.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { getAuth } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { getAuth } from "@/config/auth";
 
 export default async function Page() {
   const session = await getAuth();

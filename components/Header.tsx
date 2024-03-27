@@ -4,10 +4,10 @@ import Container from "./Container";
 import { Heart, Search, User } from "react-feather";
 import Nav from "./Nav";
 import SearchComponent from "./Search";
-import { getAuth } from "@/app/api/auth/[...nextauth]/route";
 import CartLink from "./CartLink";
 import MobileNav from "./MobileNav";
 import MobileSearch from "./MobileSearch";
+import { getAuth } from "@/config/auth";
 
 export default async function Header() {
   const session = await getAuth();

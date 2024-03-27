@@ -1,7 +1,6 @@
 import { UserWishlist } from "@/types/types";
 import Wishlist from "./Wishlist";
-import { getAuth } from "@/app/api/auth/[...nextauth]/route";
-import Link from "next/link";
+import { getAuth } from "@/config/auth";
 
 const getWishlist = async (user_id: string) => {
   const res = await fetch(

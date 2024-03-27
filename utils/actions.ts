@@ -1,6 +1,6 @@
 "use server";
 
-import { getAuth } from "@/app/api/auth/[...nextauth]/route";
+import { getAuth } from "@/config/auth";
 
 export async function createUser(prevState: any, formData: FormData) {
   const rawFomData = {

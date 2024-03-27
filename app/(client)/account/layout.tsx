@@ -1,8 +1,8 @@
 import Container from "@/components/Container";
 import { ReactNode } from "react";
 import Links from "./components/Links";
-import { getAuth } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { getAuth } from "@/config/auth";
 
 export default async function AccountLayout({ children }: { children: ReactNode }) {
   const session = await getAuth();

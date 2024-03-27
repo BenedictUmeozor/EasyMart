@@ -1,7 +1,7 @@
-import { getAuth } from "@/app/api/auth/[...nextauth]/route";
 import Order from "./Order";
 import Link from "next/link";
 import { Order as OrderType } from "@/types/types";
+import { getAuth } from "@/config/auth";
 
 const getOrders = async (id: string) => {
   const res = await fetch(
