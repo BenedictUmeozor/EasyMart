@@ -1,14 +1,14 @@
 "use client";
 
 import { useCartContext } from "@/context/CartProvider";
-import { CartItem } from "@/types/types";
+import { CartItem as CartItemType } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
 import { Minus, Plus, X } from "react-feather";
 import toast from "react-hot-toast";
 
-type Props = { item: CartItem; editCart: (product: CartItem) => void };
+type Props = { item: CartItemType; editCart: (product: CartItemType) => void };
 
 const CartItem = memo(({ item, editCart }: Props) => {
   const { deleteFromCart } = useCartContext();
