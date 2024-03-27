@@ -15,7 +15,7 @@ export default async function WishlistPage() {
   }
 
   return (
-    <div className="py-12">
+    <div className="py-4 md:py-12">
       <Container>
         <section>
           <Suspense fallback={<ProductsSkeleton />}>

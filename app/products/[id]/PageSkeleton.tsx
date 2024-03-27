@@ -6,8 +6,8 @@ import TextSkeleton from "./TextSkeleton";
 
 export default function PageSkeleton() {
   return (
-    <Container className="grid grid-cols-5 gap-10 items-center">
-      <div className="col-span-3">
+    <Container className="md:grid grid-cols-5 gap-10 items-center">
+      <div className="col-span-3 mb-6">
         <ImageSkeleton />
       </div>
       <div className="col-span-2">

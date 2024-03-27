@@ -24,7 +24,7 @@ export default async function SingleCategory({ title }: Props) {
         <Title title={title.replace("-", " ")} />
         <div className="mt-4">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="tracking-wide text-2xl capitalize">
+            <h2 className="tracking-wide text-xl capitalize">
               Explore {title.replace("-", " ")}
             </h2>
             <Link

@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <div>
-      <Container className="grid grid-cols-4 py-4">
-        <div className="col-span-1 border-r border-r-[#ddd]">
+      <Container className="md:grid grid-cols-4 py-4">
+        <div className="max-md:hidden col-span-1 border-r border-r-[#ddd]">
           <ul>
             {categories.slice(0, 8).map((category) => (
               <li key={category} className="block my-4">

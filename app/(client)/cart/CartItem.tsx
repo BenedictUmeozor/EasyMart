@@ -39,7 +39,7 @@ const CartItem = memo(({ item, editCart }: Props) => {
   };
 
   return (
-    <tr className="grid grid-cols-6 gap-2 mb-6 shadow-sm rounded py-4 px-4 items-center">
+    <tr className="flex flex-col md:grid grid-cols-6 gap-4 md:gap-2 mb-6 shadow-sm rounded py-4 px-4 md:items-center">
       <td className="flex items-center gap-2 col-span-2">
         <span className="block relative">
           <Image

@@ -2,6 +2,7 @@
 
 import { Product, WishlistItem } from "@/types/types";
 import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Heart } from "react-feather";
 import toast from "react-hot-toast";
@@ -11,6 +12,7 @@ type Props = {
 };
 
 export default function AddToWishlistButton({ product }: Props) {
+  const pathname = usePathname();
   const { data: session } = useSession();
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -101,19 +103,23 @@ export default function AddToWishlistButton({ product }: Props) {
   }, [wishlist, product.id]);
 
   return (
-    <div
-      className={
-        "bg-white h-6 w-6 cursor-pointer rounded-[50%] flex items-center justify-center " +
-        (loading ? "pointer-events-none" : "")
-      }
-      onClick={addToWishlist}
-    >
-      <Heart
-        className={
-          "w-4 text transition-all duration-300 ease-linear hover:scale-105 " +
-          (isInWishlist ? "text-crimson fill-crimson" : "")
-        }
-      />
-    </div>
+    <>
+      {pathname !== "/wishlist" && (
+        <div
+          className={
+            "bg-white h-6 w-6 cursor-pointer rounded-[50%] flex items-center justify-center " +
+            (loading ? "pointer-events-none" : "")
+          }
+          onClick={addToWishlist}
+        >
+          <Heart
+            className={
+              "w-4 text transition-all duration-300 ease-linear hover:scale-105 " +
+              (isInWishlist ? "text-crimson fill-crimson" : "")
+            }
+          />
+        </div>
+      )}
+    </>
   );
 }

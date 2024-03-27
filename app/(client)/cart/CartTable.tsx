@@ -35,9 +35,10 @@ const CartTable = memo(() => {
 
   return (
     <>
-      <table className="w-full">
-        <thead className="block">
-          <tr className="grid grid-cols-6 gap-2 text-left mb-4 shadow-sm rounded py-4 px-4 items-center">
+    <h2 className="md:hidden text-center mb-4 text-xl">Cart ({cart.length})</h2>
+      <table className="w-full max-md:border-collapse">
+        <thead className="hidden md:block">
+          <tr className="flex flex-col md:grid grid-cols-6 gap-2 text-left mb-4 shadow-sm rounded py-4 px-4 md:items-center">
             <th className="font-normal col-span-2">Product</th>
             <th className="font-normal">Price</th>
             <th className="font-normal col-span-2">Quantity</th>

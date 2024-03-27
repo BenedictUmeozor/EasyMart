@@ -29,10 +29,11 @@ export default function Form() {
           <textarea
             rows={8}
             className="w-full bg-[#f5f5f5] rounded p-2 resize-none"
+            placeholder="Your message"
           ></textarea>
         </div>
-        <div className="flex items-center justify-end">
-          <button className="h-14 px-6 py-2 bg-crimson text-white text-[0.9rem] rounded">
+        <div className="md:flex items-center justify-end">
+          <button className="h-14 px-6 py-2 bg-crimson text-white text-[0.9rem] rounded max-md:w-full">
             Send Message
           </button>
         </div>

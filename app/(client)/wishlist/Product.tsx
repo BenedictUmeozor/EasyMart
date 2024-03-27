@@ -5,7 +5,7 @@ import { UserWishlist } from "@/types/types";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { memo, useState } from "react";
-import { ShoppingCart, Trash2 } from "react-feather";
+import {  Trash2 } from "react-feather";
 
 type Props = {
   wishlist: UserWishlist;

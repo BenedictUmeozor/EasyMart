@@ -5,7 +5,7 @@ import { Facebook, Instagram, Linkedin, Send, Twitter } from "react-feather";
 export default function Footer() {
   return (
     <footer className="bg-black text-white pt-6 pb-4">
-      <Container className="grid grid-cols-5 gap-8">
+      <Container className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 lg:gap-8 max-md:px-4">
         <div>
           <Link href={"/"} className="font-semibold text-lg mb-4 block">
             EasyMart

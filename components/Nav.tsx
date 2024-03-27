@@ -28,24 +28,35 @@ export default function Nav({ sessionIsActive }: { sessionIsActive: boolean }) {
 
   return (
     <nav className="flex-[2]">
-      <ul className="block">
+      <ul className="flex flex-col items-center gap-12 md:block">
         {links.map((link) => (
-          <li key={link.id} className="inline-block mx-4 nav-link">
+          <li
+            key={link.id}
+            className={
+              "inline-block lg:mx-4 mx-2 nav-link " +
+              (pathname === link.path ? "max-md:font-bold" : "")
+            }
+          >
             <Link href={link.path} className="block">
               {link.name}
             </Link>
             {pathname === link.path && (
-              <div className="h-[1.5px] w-full bg-[#ccc] rounded mt-1"></div>
+              <div className="hidden md:block h-[1.5px] w-full bg-[#ccc] rounded mt-1"></div>
             )}
           </li>
         ))}
         {!sessionIsActive && (
-          <li className="inline-block mx-4 nav-link">
+          <li
+            className={
+              "inline-block lg:mx-4 mx-2 nav-link " +
+              (pathname === "/signup" ? "max-md:font-bold" : "")
+            }
+          >
             <Link href={"/signup"} className="block">
               Sign Up
             </Link>
             {pathname === "/signup" && (
-              <div className="h-[1.5px] w-full bg-[#ccc] rounded mt-1"></div>
+              <div className="hidden md:block h-[1.5px] w-full bg-[#ccc] rounded mt-1"></div>
             )}
           </li>
         )}

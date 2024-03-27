@@ -12,12 +12,12 @@ export default async function AccountLayout({ children }: { children: ReactNode 
   }
   return (
     <div className="py-12">
-      <Container className="grid grid-cols-4 gap-8">
-        <div className="col-span-1">
-          <p className="text-center font-bold mb-4">Manage My account</p>
+      <Container className="md:grid grid-cols-4 gap-8">
+        <div className="col-span-1 max-md:mb-8">
+          <p className="md:text-center font-bold mb-4">Manage My account</p>
           <Links />
         </div>
-        <div className="col-span-3 shadow p-6 rounded">{children}</div>
+        <div className="col-span-3 shadow py-6 max-md:px-4 md:p-6 rounded">{children}</div>
       </Container>
     </div>
   );

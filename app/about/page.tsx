@@ -5,11 +5,11 @@ import Services from "./Services";
 
 export default function About() {
   return (
-    <div className="py-12">
+    <div className="py-4 md:selection:py-12">
       <Container>
-        <div className="grid grid-cols-2 gap-8 items-center mb-12">
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-12 max-md:text-center">
           <div>
-            <h2 className="text-4xl mb-6 font-semibold">Our Story</h2>
+            <h2 className="text-2xl md:text-4xl mb-6 font-semibold">Our Story</h2>
             <p className="mb-3">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
               labore beatae fugit quia ut possimus alias, culpa minima esse

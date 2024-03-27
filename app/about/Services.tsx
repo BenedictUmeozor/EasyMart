@@ -6,7 +6,7 @@ import { CurrencyDollarIcon } from "@heroicons/react/16/solid";
 export default function Services() {
   return (
     <section className="pt-4 pb-16">
-      <Container className="grid grid-cols-4 gap-4">
+      <Container className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
         <Service largeText="10.5k" smallText="sellers active in our site">
           <Home className="w-8 text-white" />
         </Service>

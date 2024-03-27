@@ -9,7 +9,7 @@ type Props = {
 
 export default function Products({ products }: Props) {
   return (
-    <div className="grid grid-cols-5 gap-4" style={{ rowGap: "2rem" }}>
+    <div className="grid grid-cols-2 md:grid-cols-5 gap-4" style={{ rowGap: "2rem" }}>
       {products &&
         products.map((product) => (
           <Product key={product.id} product={product} />

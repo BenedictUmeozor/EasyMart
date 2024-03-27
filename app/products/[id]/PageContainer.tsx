@@ -17,8 +17,8 @@ export default async function PageContainer({ id }: { id: string }) {
   const product: Product = await getProduct(id);
 
   return (
-    <Container className="grid grid-cols-5 gap-10 items-center">
-      <div className="col-span-3">
+    <Container className="md:grid grid-cols-5 gap-10 items-center">
+      <div className="col-span-3 max-md:mb-10">
         <Images images={product.images} title={product.title} />
       </div>
       <div className="col-span-2">

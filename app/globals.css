@@ -57,6 +57,7 @@ button:hover {
 
 img {
   max-width: 100%;
+  z-index: 1 !important;
 }
 
 .body {
@@ -81,5 +82,21 @@ button:disabled {
 }
 
 .button-hover {
-  @apply hover:text-crimson hover:border hover:border-crimson hover:bg-transparent;
+  @apply hover:text-crimson hover:border hover:scale-100 hover:border-crimson hover:bg-transparent;
+}
+
+.hamburger {
+  animation: fadeIn 300ms linear 1;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

@@ -28,7 +28,7 @@ export default function Form() {
   };
 
   useEffect(() => {
-    if (session && session.user) {
+    if (session && session.user && user === null) {
       (async () => {
         const { user }: { user: User } = await getUser(
           (session?.user as any).id
@@ -36,7 +36,7 @@ export default function Form() {
         setUser(user);
       })();
     }
-  }, [session]);
+  }, [session, user]);
 
   useEffect(() => {
     if (state.success) {
@@ -58,8 +58,8 @@ export default function Form() {
           <p className="mb-4 text-xs text-crimson">{state?.error}</p>
           <p className="mb-4 text-xs text-success">{state?.success}</p>
           <form action={formAction} className="w-full">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="flex-1">
+            <div className="flex max-md:flex-col items-center gap-4 mb-8">
+              <div className="flex-1 max-md:w-full">
                 <label htmlFor="name" className="block mb-1">
                   Name
                 </label>
@@ -73,7 +73,7 @@ export default function Form() {
                   required
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 max-md:w-full">
                 <label htmlFor="email" className="block mb-1">
                   Email
                 </label>
@@ -88,8 +88,8 @@ export default function Form() {
                 />
               </div>
             </div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="flex-1">
+            <div className="flex max-md:flex-col items-center gap-4 mb-8">
+              <div className="flex-1 max-md:w-full">
                 <label htmlFor="phone" className="block mb-1">
                   Phone Numner
                 </label>
@@ -103,7 +103,7 @@ export default function Form() {
                   required
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 max-md:w-full">
                 <label htmlFor="address" className="block mb-1">
                   Address
                 </label>
@@ -146,7 +146,7 @@ export default function Form() {
               </div>
             </div>
             <div className="flex items-center justify-end">
-              <div className="flex items-center w-[25%] gap-4">
+              <div className="flex items-center w-full md:w-[25%] gap-4">
                 <SubmitButton
                   text="Save changes"
                   className="bg-crimson hover:scale-100 button-hover text-white text-[0.9rem] py-2 rounded flex-[2]"

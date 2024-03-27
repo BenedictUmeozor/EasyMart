@@ -7,7 +7,7 @@ export default function Links() {
   const pathname = usePathname();
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="md:flex items-center justify-center">
       <ul className="pl-4 text-left">
         <li className="block mb-2">
           <Link

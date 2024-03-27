@@ -41,7 +41,7 @@ export default function ProductContainer() {
 
   return (
     <>
-      <h2 className="text-3xl font-semibold mb-8">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-8">
         {" "}
         All Products <span className="text-gray-400 text-base">(100)</span>
       </h2>

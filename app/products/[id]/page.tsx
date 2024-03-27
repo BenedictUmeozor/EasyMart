@@ -23,7 +23,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="py-12">
-      {/* <PageSkeleton /> */}
       <Suspense fallback={<PageSkeleton />}>
         <PageContainer id={id} />
       </Suspense>

@@ -48,7 +48,7 @@ export default function SearchPage() {
   }, [term, page]);
 
   return (
-    <section className="py-12">
+    <section className="py-6 md:py-12">
       {products === null && (
         <Container>
           <ProductsSkeleton />

@@ -10,7 +10,7 @@ export default function Cart() {
   const { cart } = useCartContext();
 
   return (
-    <div className="py-12">
+    <div className="py-4 pb-8 md:pb-12 md:py-12">
       <Container>
         {cart.length > 0 && (
           <>
