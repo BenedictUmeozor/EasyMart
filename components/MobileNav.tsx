@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
   const { data: session } = useSession();
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const openNav = () => setOpen(true);
 
@@ -21,10 +21,10 @@ export default function MobileNav() {
 
   useEffect(() => {
     if (open) {
-      closeNav()
+      closeNav();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function MobileNav() {
             <X className="w-12 cursor-pointer" onClick={closeNav} />
             <div className="mt-12">
               <ul>
-                <Nav sessionIsActive={session?.user !== null} />
+                <Nav sessionIsActive={session !== null} />
               </ul>
             </div>
           </div>

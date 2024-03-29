@@ -14,8 +14,8 @@ export default async function SignUp() {
 
   return (
     <section className="py-12">
-      <Container className="grid grid-cols-2 items-center gap-4">
-        <div className="flex items-center justify-center bg-[#CBE4E8] py-8">
+      <Container className="md:grid grid-cols-2 items-center gap-4">
+        <div className="hidden md:flex items-center justify-center bg-[#CBE4E8] py-8">
           <Image
             src={image}
             alt="Image"
