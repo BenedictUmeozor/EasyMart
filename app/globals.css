@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-size: 16px;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -99,4 +95,8 @@ button:disabled {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.hero-action:hover .icon {
+  margin-left: 0.5rem;
 }

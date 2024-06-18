@@ -1,6 +1,6 @@
 import Products from "@/app/components/Products";
 import Title from "@/app/components/Title";
-import { ProductList } from "@/types/types";
+import { CategoryType, ProductList } from "@/types/types";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Category from "./Category";
@@ -64,16 +64,18 @@ export default async function CategoryContainer({ category }: Props) {
           Explore other categories
         </h2>
         <div className="grid grid-cols-8 gap-4">
-          <Category category="smartphones">
-            <Smartphone className="w-8" />
-          </Category>
+          {
+            <Category category="smartphones">
+              <Smartphone className="w-8" />
+            </Category>
+          }
           <Category category="laptops">
             <ComputerDesktopIcon className="w-8" />
           </Category>
           <Category category="fragrances">
             <Perfume className="w-8" />
           </Category>
-          <Category category="skincare">
+          <Category category="skin-care">
             <Image
               src={skincare}
               alt="skincare"

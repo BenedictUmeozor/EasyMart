@@ -26,18 +26,21 @@ export default function Images({ images, title }: Props) {
       />
 
       <div className="flex-1 flex gap-4 justify-between">
-        {images.map((image, index) => (
+        {images.map((image, i) => (
           <div
             key={uuidV4()}
             className="w-full flex rounded shadow justify-center"
-            onClick={() => handleChange(index)}
+            onClick={() => handleChange(i)}
           >
             <Image
               src={image}
               alt={title}
               height={500}
               width={500}
-              className="w-full rounded cursor-pointer hover:scale-105 hover:border hover:border-crimson object-contain"
+              className={
+                "w-full rounded cursor-pointer border hover:scale-105 hover:border hover:border-crimson object-contain max-w-[150px] " +
+                (i === index ? "border-crimson" : "border-transparent")
+              }
             />
           </div>
         ))}

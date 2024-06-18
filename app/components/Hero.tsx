@@ -19,15 +19,15 @@ export default async function Hero() {
       <div className="flex-1 flex flex-col gap-4 max-md:gap-2 justify-between">
         <p className="max-md:p-4">{product.title}</p>
         <p className="text-2xl max-md:p-4 max-md:text-xl">
-          {product.description && product.description.length > 100
-            ? product.description.substring(0, 100) + "..."
+          {product.description && product.description.length > 80
+            ? product.description.substring(0, 80) + "..."
             : product.description}
         </p>
         <Link
           href={"/products/" + product.id}
-          className="underline flex items-center gap-2 max-md:p-4"
+          className="underline flex items-center gap-2 max-md:p-4 hover:text-crimson hero-action"
         >
-          Shop now <ArrowRight className="w-4" />
+          Shop now <ArrowRight className="w-4 icon" />
         </Link>
       </div>
       <div className="flex-1 h-full">
@@ -36,7 +36,7 @@ export default async function Hero() {
           alt="Image"
           height={500}
           width={500}
-          className="w-full h-full max-h-80 mx-auto object-contain"
+          className="w-full h-full max-h-80 mx-auto object-contain max-w-[300px]"
         />
       </div>
     </div>

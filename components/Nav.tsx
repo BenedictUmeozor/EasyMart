@@ -33,8 +33,8 @@ export default function Nav({ sessionIsActive }: { sessionIsActive: boolean }) {
           <li
             key={link.id}
             className={
-              "inline-block lg:mx-4 mx-2 nav-link " +
-              (pathname === link.path ? "max-md:font-bold" : "")
+              "inline-block lg:mx-4 mx-2 nav-link hover:text-crimson " +
+              (pathname === link.path ? "max-md:font-bold text-crimson" : "")
             }
           >
             <Link href={link.path} className="block">
@@ -48,7 +48,7 @@ export default function Nav({ sessionIsActive }: { sessionIsActive: boolean }) {
         {!sessionIsActive && (
           <li
             className={
-              "inline-block lg:mx-4 mx-2 nav-link " +
+              "inline-block lg:mx-4 mx-2 nav-link hover:text-crimson " +
               (pathname === "/signup" ? "max-md:font-bold" : "")
             }
           >

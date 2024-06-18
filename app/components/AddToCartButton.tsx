@@ -30,7 +30,7 @@ export default function AddToCartButton({ product }: Props) {
 
   return (
     <button
-      className="absolute bottom-0 left-0 w-full bg-black text-white p-2 text-[0.9rem] flex items-center justify-center gap-2 hover:scale-100 z-10"
+      className="absolute bottom-0 left-0 w-full bg-black text-white p-2 text-[0.9rem] flex items-center justify-center gap-2 hover:scale-100 z-10 hover:text-crimson"
       onClick={addProductToCart}
     >
       <ShoppingCart className="w-4 " />

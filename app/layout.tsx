@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -14,6 +14,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "EasyMart",
+};
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
+  themeColor: "#000",
 };
 
 export default function RootLayout({

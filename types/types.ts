@@ -106,3 +106,9 @@ export type CartItem = {
   price: number;
   subTotal: number;
 };
+
+export type CategoryType = {
+  slug: string;
+  name: string;
+  url: string;
+};

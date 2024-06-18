@@ -14,13 +14,15 @@ export default function Product({ product }: { product: ProductType }) {
   return (
     <div className="h-[300px] flex flex-col rounded-md  shadow-lg">
       <div className="product-image relative h-[60%] w-full bg-secondary flex items-center justify-center overflow-hidden">
-        <Image
-          src={product.thumbnail}
-          alt={product.title}
-          height={200}
-          width={200}
-          className="w-full h-full duration-700 hover:scale-105 object-contain"
-        />
+        <Link href={`/products/${product.id}`}>
+          <Image
+            src={product.thumbnail}
+            alt={product.title}
+            height={200}
+            width={200}
+            className="w-full h-full duration-700 hover:scale-105 object-contain"
+          />
+        </Link>
         <AddToCartButton product={product} />
         <div className="absolute top-0 left-0 w-full bg-transparent z-[2] flex items-center justify-between p-2">
           <div className="flex items-center justify-center rounded text-white bg-crimson px-2 py-1 text-xs">

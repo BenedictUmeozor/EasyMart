@@ -1,13 +1,23 @@
+import { CategoryType } from "@/types/types";
 import Link from "next/link";
 import { ReactNode } from "react";
 
-export default function Category({
+export default async function Category({
   category,
   children,
 }: {
   children: ReactNode;
   category: string;
 }) {
+  const categories: CategoryType[] = await fetch(
+    "https://dummyjson.com/products/categories"
+  ).then((res) => res.json());
+  const formatted = categories.map((c) => c.slug);
+
+  if (!formatted.includes(category)) {
+    return null;
+  }
+
   return (
     <Link
       href={`/categories/${category}`}
